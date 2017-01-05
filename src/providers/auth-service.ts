@@ -2,11 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
-import {Observable} from 'rxjs/Observable';
-import { Storage } from '@ionic/storage';
-import { Events } from 'ionic-angular';
 import { AlertController, LoadingController, Loading } from 'ionic-angular';
-import { LoginPage } from '../pages/login/login';
 /*
   Generated class for the AuthService provider.
 
@@ -66,7 +62,10 @@ export class AuthService {
         // we've got back the raw data, now generate the core schedule data
         // and save the data for later reference
         this.user = user;
-
+        let body = JSON.stringify({
+          email: null,
+          password: null
+            });
         resolve(this.user);
          },  error => {
         this.showError("User Not Found");
@@ -87,42 +86,5 @@ export class AuthService {
     });
     alert.present(prompt);
   }
- 
- /*
-  public login(credentials) {
-    	let headers = new Headers({
-			'Content-Type': 'application/json'
-		});
-		let options = new RequestOptions({
-			headers: headers
-		});
-		let body = JSON.stringify({
-			email: credentials.email,
-			password: credentials.password
-		});
-		return this.http.post(LOGIN_URL, body, options)
-			.toPromise()
-			.then(response =>
-				{ return response.json() }, this.handleError);
-			 
-    	//let user = this.http.post('');
-    	//console.log(credentials.email);
-    	/*
-      return Observable.create(observer => {
-        // At this point make a request to your backend to make a real check!
-        let access = (credentials.password === "pass" && credentials.email === "email");
-        this.currentUser = new User('Simon', 'saimon@devdactic.com');
-        observer.next(access);
-        observer.complete();
-      });
-      
-  }
-
-  handleError(error) {
-		console.log(error);
-		return error.json().message || 'Server error, please try again later';
-	}
-  */
-
 
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController, LoadingController, Loading } from 'ionic-angular';
+import { NavController, AlertController, LoadingController, Loading } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
-import { Page1 } from '../page1/page1';
+import { DashboardPage } from '../dashboard/dashboard';
 import { Storage } from '@ionic/storage';
 /*
   Generated class for the Login page.
@@ -33,36 +33,12 @@ public login() {
       .then(data => {
         this.user = data;
         this.storage.set(HAS_LOGGED_IN,true);
-         this.storage.set('username', this.user.username);
+         this.storage.set('user', this.user);
           this.storage.set('id', this.user.id);
-          this.registerCredentials = {email: '', password: ''};
-          console.log("Credential ",this.registerCredentials);
-          this.nav.setRoot(Page1);
+          this.nav.setRoot(DashboardPage);
          });
       this.loading.dismiss();
-   /* if(this.user.email == this.registerCredentials.email) {
-      console.log("Granted");
     }
-    else{
-      console.log("Denied");
-    }
-    this.loading.dismiss();
-
-    /*.subscribe(allowed => {
-      if (allowed) {
-        setTimeout(() => {
-        this.loading.dismiss();
-        this.nav.setRoot(Page1)
-        });
-      } else {
-        this.showError("Access Denied");
-      }
-    },
-    error => {
-      this.showError(error);
-    });
-    */
-  }
  
   showLoading() {
     this.loading = this.loadingCtrl.create({

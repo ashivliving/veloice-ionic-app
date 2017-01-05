@@ -5,17 +5,14 @@ import { MyApp } from './app.component';
 
 import { AuthService } from '../providers/auth-service';
 
-import { Page1 } from '../pages/page1/page1';
-import { Page2 } from '../pages/page2/page2';
+import { DashboardPage } from '../pages/dashboard/dashboard';
 import { LoginPage } from '../pages/login/login';
 
-let registerCredentials = {email: '', password: ''};
 
 @NgModule({
   declarations: [
     MyApp,
-    Page1,
-    Page2,
+    DashboardPage,
     LoginPage
   ],
   imports: [
@@ -24,8 +21,7 @@ let registerCredentials = {email: '', password: ''};
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    Page1,
-    Page2,
+    DashboardPage,
     LoginPage
   ],
   providers: [AuthService,Storage]
