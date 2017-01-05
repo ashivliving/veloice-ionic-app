@@ -1,3 +1,42 @@
 page-dashboard {
 
+	.block{
+		width: 200px;
+		height: 200px;
+		border-radius: 10px;
+		margin-bottom: 20px;
+		padding: 20px;
+		font-family: cursive;
+		text-align: center;
+		font-size: 30px;
+		font-weight: 10;
+	}
+
+	.row {
+		display: inline-block;
+		padding: 20px;
+	}
+
+	.danger{
+		background-color: #f53d3d; 
+	}
+
+	.secondary {
+		background-color: #32db64;
+	}
+
+	.primary {
+		background-color: #387ef5;
+	}
+
+	.dark {
+		background-color: #222;
+	}
+
+	.main {
+		margin:auto;
+		/*padding: 20px;*/
+		display: inline-block;
+	}
+
 }

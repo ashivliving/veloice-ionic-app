@@ -36,10 +36,6 @@ export class AuthService {
     }
 
     load(credentials) {
-  if (this.user) {
-    // already loaded data
-    return Promise.resolve(this.user);
-  }
   let headers = new Headers({
       'Content-Type': 'application/json'
       });
@@ -62,10 +58,6 @@ export class AuthService {
         // we've got back the raw data, now generate the core schedule data
         // and save the data for later reference
         this.user = user;
-        let body = JSON.stringify({
-          email: null,
-          password: null
-            });
         resolve(this.user);
          },  error => {
         this.showError("User Not Found");
@@ -75,9 +67,7 @@ export class AuthService {
   }
 
   showError(text) {
-    setTimeout(() => {
-      this.loading.dismiss();
-    });
+    this.loading.dismiss();
  
     let alert = this.alertCtrl.create({
       title: 'Fail',
