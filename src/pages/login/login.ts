@@ -28,7 +28,7 @@ export class LoginPage {
 */
 
 public login() {
-    this.showLoading()
+    
     this.auth.login(this.registerCredentials)
       .then(data => {
         this.user = data;
@@ -37,27 +37,6 @@ public login() {
           this.storage.set('id', this.user.id);
           this.nav.setRoot(DashboardPage);
          });
-      this.loading.dismiss();
     }
- 
-  showLoading() {
-    this.loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
-    this.loading.present();
-  }
- 
-  showError(text) {
-    setTimeout(() => {
-      this.loading.dismiss();
-    });
- 
-    let alert = this.alertCtrl.create({
-      title: 'Fail',
-      subTitle: text,
-      buttons: ['OK']
-    });
-    alert.present(prompt);
-  }
 
 }

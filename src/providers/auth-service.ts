@@ -36,6 +36,7 @@ export class AuthService {
     }
 
     load(credentials) {
+      this.showLoading()
   let headers = new Headers({
       'Content-Type': 'application/json'
       });
@@ -59,12 +60,21 @@ export class AuthService {
         // and save the data for later reference
         this.user = user;
         resolve(this.user);
+        this.loading.dismiss();
          },  error => {
         this.showError("User Not Found");
       });
    });
 
   }
+
+    showLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    this.loading.present();
+  }
+ 
 
   showError(text) {
     this.loading.dismiss();
