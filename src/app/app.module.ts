@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { AuthService } from '../providers/auth-service';
 
 import { DashboardPage } from '../pages/dashboard/dashboard';
+import { CallRecordingPage } from '../pages/call-recording/call-recording';
 import { LoginPage } from '../pages/login/login';
 
 
@@ -13,6 +14,7 @@ import { LoginPage } from '../pages/login/login';
   declarations: [
     MyApp,
     DashboardPage,
+    CallRecordingPage,
     LoginPage
   ],
   imports: [
@@ -22,6 +24,7 @@ import { LoginPage } from '../pages/login/login';
   entryComponents: [
     MyApp,
     DashboardPage,
+    CallRecordingPage,
     LoginPage
   ],
   providers: [AuthService,Storage]

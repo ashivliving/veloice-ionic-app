@@ -3,6 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar} from 'ionic-native';
 import { Storage } from '@ionic/storage';
 
+import { CallRecordingPage } from '../pages/call-recording/call-recording';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { LoginPage } from '../pages/login/login';
 
@@ -22,7 +23,8 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Dashboard', component: DashboardPage }
+      { title: 'Dashboard', component: DashboardPage },
+      { title: 'Call Recording', component: CallRecordingPage }
     ];
 
   }
