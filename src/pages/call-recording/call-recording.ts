@@ -47,7 +47,7 @@ export class CallRecordingPage {
               this.noData =true;
             }
           });
-        },100);
+        },500);
       
   }
 

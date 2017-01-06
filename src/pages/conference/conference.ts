@@ -25,7 +25,7 @@ public dialOutData:any;
   	setTimeout(() => {
        this.dialIn();
        this.dialOut();
-    },100);
+    },500);
   }
 
   dialIn(){

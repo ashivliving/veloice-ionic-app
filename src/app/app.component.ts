@@ -49,7 +49,7 @@ export class MyApp {
   initializeApp() {
     this.platform.ready().then(() => {
       this.storage.get("hasLoggedIn").then(status=> {
-        if(status==true){
+        if(status == true){
           this.nav.setRoot(DashboardPage);
         }
       })
