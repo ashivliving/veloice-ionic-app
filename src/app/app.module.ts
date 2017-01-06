@@ -4,7 +4,7 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { AuthService } from '../providers/auth-service';
-
+import { ConferencePage } from '../pages/conference/conference';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { CallRecordingPage } from '../pages/call-recording/call-recording';
 import { LoginPage } from '../pages/login/login';
@@ -15,6 +15,7 @@ import { LoginPage } from '../pages/login/login';
     MyApp,
     DashboardPage,
     CallRecordingPage,
+    ConferencePage,
     LoginPage
   ],
   imports: [
@@ -25,6 +26,7 @@ import { LoginPage } from '../pages/login/login';
     MyApp,
     DashboardPage,
     CallRecordingPage,
+    ConferencePage,
     LoginPage
   ],
   providers: [AuthService,Storage]

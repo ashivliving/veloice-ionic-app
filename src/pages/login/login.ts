@@ -27,16 +27,16 @@ export class LoginPage {
 
 */
 
-public login() {
+login() {
     
-    this.auth.login(this.registerCredentials)
-      .then(data => {
-        this.user = data;
-        this.storage.set(HAS_LOGGED_IN,true);
-         this.storage.set('user', this.user);
-          this.storage.set('id', this.user.id);
-          this.nav.setRoot(DashboardPage);
-         });
-    }
+  this.auth.login(this.registerCredentials)
+    .then(data => {
+      this.user = data;
+      this.storage.set(HAS_LOGGED_IN,true);
+      this.storage.set('user', this.user);
+      this.storage.set('id', this.user.id);
+      this.nav.setRoot(DashboardPage);
+     });
+}
 
 }

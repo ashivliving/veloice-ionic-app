@@ -3,7 +3,11 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar} from 'ionic-native';
 import { Storage } from '@ionic/storage';
 
+
 import { CallRecordingPage } from '../pages/call-recording/call-recording';
+
+import { ConferencePage } from '../pages/conference/conference';
+
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { LoginPage } from '../pages/login/login';
 
@@ -16,15 +20,20 @@ export class MyApp {
 
   rootPage: any = LoginPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: any}>;
 
   constructor(public platform: Platform,public storage:Storage) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Dashboard', component: DashboardPage },
-      { title: 'Call Recording', component: CallRecordingPage }
+
+     
+
+      { title: 'Dashboard', component: DashboardPage, icon: 'apps' },
+      { title: 'Conference', component: ConferencePage, icon: 'people' },
+       { title: 'Call Recording', component: CallRecordingPage, icon: 'md-recording' }
+
     ];
 
   }
