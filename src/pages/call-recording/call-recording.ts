@@ -46,6 +46,8 @@ export class CallRecordingPage {
             if(this.detail.length==0){
               this.noData =true;
             }
+          },error => {
+            this.showError("Internal Server Error!");
           });
         },500);
       
