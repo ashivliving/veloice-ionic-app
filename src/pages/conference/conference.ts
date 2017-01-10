@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, Loading } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map'; 
 /*
@@ -14,18 +14,23 @@ import 'rxjs/add/operator/map';
   templateUrl: 'conference.html'
 })
 export class ConferencePage {
+loading: Loading;
+public dial;
 public id:any;
 public dialInData:any;
 public dialOutData:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public http: Http,public storage:Storage) {
-	this.storage.get("id").then(status=> {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http: Http,public storage:Storage, private loadingCtrl: LoadingController ) {
+	  this.dial = 'dialin';
+  this.storage.get("id").then(status=> {
        this.id=status;
   	})
-  	
+  	this.showLoading();
   	setTimeout(() => {
        this.dialIn();
        this.dialOut();
+       this.loading.dismiss();
     },500);
+
   }
 
   dialIn(){
@@ -48,6 +53,13 @@ public dialOutData:any;
 		    console.log("this.dialOutData",this.dialOutData)
      });
 
+  }
+
+  showLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    this.loading.present();
   }
 
 }

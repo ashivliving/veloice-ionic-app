@@ -14,7 +14,7 @@
 
 
   <ion-toolbar >
-    <ion-segment [(ngModel)]="pet">
+    <ion-segment [(ngModel)]="dial">
       <ion-segment-button value="dialin">
         Dial In
       </ion-segment-button>
@@ -29,7 +29,7 @@
 
 <ion-content padding>
 
-<div [ngSwitch]="pet">
+<div [ngSwitch]="dial">
 <span  *ngFor="let in of dialInData">
   <ion-list *ngSwitchCase="'dialin'">
   <ion-item>
