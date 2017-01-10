@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-  	<button ion-button menuToggle right>
+  	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Call Recording</ion-title>
@@ -40,6 +40,7 @@
       <ion-icon md="md-arrow-round-back" *ngIf = "row.direction == 'inbound'"></ion-icon>
       <ion-icon md="md-arrow-round-forward" *ngIf = "row.direction == 'outbound'"></ion-icon>
       {{ row.direction }}</p>
+      <button ion-button color="secondary" (click)="playAudio(row.recording_url)">Play</button>
       <ion-note item-right>{{ row.datetime }}</ion-note>
     </ion-item>
 

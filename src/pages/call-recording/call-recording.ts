@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Http } from '@angular/http';
 import { AlertController, LoadingController, Loading } from 'ionic-angular';
+import { MediaPlugin } from 'ionic-native';
 
 /*
   Generated class for the CallRecording page.
@@ -20,6 +21,7 @@ export class CallRecordingPage {
   public noData:any;
 	public detail;
 	public id;
+  public file;
   loading: Loading;
   public full_date = new Date();
   public year = this.full_date.getFullYear();
@@ -95,6 +97,20 @@ export class CallRecordingPage {
       buttons: ['OK']
     });
     alert.present(prompt);
+  }
+
+  public playAudio(url) {
+    console.log("Url - ",url);
+    this.file = new MediaPlugin(url);
+    this.file.play();
+    this.file.init.then(() => {
+      console.log('Playback Finished');
+    }, (err) => {
+      console.log('somthing went wrong! error code: ' + err.code + ' message: ' + err.message);
+    });
+
+    
+
   }
 
 }
