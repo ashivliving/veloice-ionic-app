@@ -5,19 +5,15 @@ import { Http } from '@angular/http';
 import { AlertController, LoadingController, Loading } from 'ionic-angular';
 import { MediaPlugin } from 'ionic-native';
 
-/*
-  Generated class for the CallRecording page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 const CRecording = 'http://app.veloice.com:3000/api/CallRecordings/callHistoryList';
-//?created_from=2016-12-30&created_to=2017-1-7&access_token=xsISasdUnMq7xrEIsEcNkB6FYFcaULtSW3tfHLGHY6RHyJfel4QBaSa7eqM95kUo';
 @Component({
   selector: 'page-call-recording',
   templateUrl: 'call-recording.html'
 })
 export class CallRecordingPage {
+  play:any;
+  stop:any
   public noData:any;
 	public detail;
 	public id;
@@ -35,6 +31,9 @@ export class CallRecordingPage {
     constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http,public storage : Storage,private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
       this.showLoading();
       this.noData =false;
+      this.play = true;
+      this.stop = false;
+
   	  this.storage.get("id").then(status =>{
         this.id = status;
       });
@@ -100,6 +99,8 @@ export class CallRecordingPage {
   }
 
   public playAudio(url) {
+    this.play = false;
+    this.stop = true;
     console.log("Url - ",url);
     this.file = new MediaPlugin(url);
     this.file.play();
@@ -108,9 +109,19 @@ export class CallRecordingPage {
     }, (err) => {
       console.log('somthing went wrong! error code: ' + err.code + ' message: ' + err.message);
     });
+  }
 
-    
-
+   public stopAudio(url) {
+    this.play = true;
+    this.stop = false;
+    console.log("Url - ",url);
+    this.file = new MediaPlugin(url);
+    this.file.pause();
+    this.file.init.then(() => {
+      console.log('Playback Finished');
+    }, (err) => {
+      console.log('somthing went wrong! error code: ' + err.code + ' message: ' + err.message);
+    });
   }
 
 }

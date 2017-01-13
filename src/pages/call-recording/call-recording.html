@@ -33,17 +33,27 @@
 
  <ion-list >
 
-    <ion-item *ngFor = "let row of detail">
+  <ion-item-sliding *ngFor = "let row of detail">
+  <ion-item >
     
       <h2>{{ row.caller_id_number }}</h2>
       <p><ion-icon md="md-call"></ion-icon>
       <ion-icon md="md-arrow-round-back" *ngIf = "row.direction == 'inbound'"></ion-icon>
       <ion-icon md="md-arrow-round-forward" *ngIf = "row.direction == 'outbound'"></ion-icon>
       {{ row.direction }}</p>
-      <button ion-button color="secondary" (click)="playAudio(row.recording_url)">Play</button>
       <ion-note item-right>{{ row.datetime }}</ion-note>
     </ion-item>
-
+      <ion-item-options>
+        <button ion-button color="secondary" (click)="playAudio(row.recording_url)" *ngIf="play">
+          <ion-icon name="play"></ion-icon>
+          play
+        </button>
+        <button ion-button color="danger" (click)="stopAudio(row.recording_url)" *ngIf="stop">
+          <ion-icon name="pause"></ion-icon>
+          play
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 
   <ion-list *ngIf="noData">
