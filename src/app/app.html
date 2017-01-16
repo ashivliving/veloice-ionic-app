@@ -1,12 +1,16 @@
-<ion-menu [content]="content">
-  <ion-header>
+<ion-menu [content]="content" >
+  <!--ion-header>
     <ion-toolbar>
       <ion-title>Menu</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header-->
 
-  <ion-content>
+  <ion-content class="side-menu-gradient">
     <ion-list>
+       <div class=" menu_div item item-avatar">
+            <img style="margin-top:0px; width: 200px; " src="http://veloice.com/images/logob.png">
+            
+       </div>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
       <ion-icon item-left [name]="p.icon"></ion-icon>
         {{p.title}}

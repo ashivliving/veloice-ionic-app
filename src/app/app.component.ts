@@ -10,6 +10,7 @@ import { ConferencePage } from '../pages/conference/conference';
 
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { LoginPage } from '../pages/login/login';
+import { CallhistoryPage } from '../pages/callhistory/callhistory';
 
 // const HAS_LOGGED_IN = 'hasLoggedIn';
 @Component({
@@ -27,12 +28,10 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-
-     
-
-      { title: 'Dashboard', component: DashboardPage, icon: 'apps' },
+      { title: 'Dashboard', component: DashboardPage, icon: 'home' },
+      { title: 'Call Recording', component: CallRecordingPage, icon: 'megaphone' },
       { title: 'Conference', component: ConferencePage, icon: 'people' },
-       { title: 'Call Recording', component: CallRecordingPage, icon: 'md-recording' }
+      { title: 'Call History', component: CallhistoryPage, icon: 'call' }
 
     ];
 

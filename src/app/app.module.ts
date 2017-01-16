@@ -8,6 +8,7 @@ import { ConferencePage } from '../pages/conference/conference';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { CallRecordingPage } from '../pages/call-recording/call-recording';
 import { LoginPage } from '../pages/login/login';
+import { CallhistoryPage } from '../pages/callhistory/callhistory';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { LoginPage } from '../pages/login/login';
     DashboardPage,
     CallRecordingPage,
     ConferencePage,
-    LoginPage
+    LoginPage,
+    CallhistoryPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -27,7 +29,8 @@ import { LoginPage } from '../pages/login/login';
     DashboardPage,
     CallRecordingPage,
     ConferencePage,
-    LoginPage
+    LoginPage,
+    CallhistoryPage
   ],
   providers: [AuthService,Storage]
 })

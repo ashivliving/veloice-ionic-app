@@ -11,6 +11,11 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Dashboard</ion-title>
+    <ion-buttons end>
+    <div (click)="checkNotification()">
+    <ion-icon class="adduser" large item-right name='notifications'></ion-icon>
+    </div>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -34,16 +39,23 @@
     <ion-col>
     <ion-card style="background-color:#f7525f">
   <ion-card-content style="color:#fff">
-  <ion-icon name="md-trending-down" centre></ion-icon>
-      <!-- <p>{{dashBoard.missedCallCount}}</p> -->
+
+
+    
+
+  {{ missedCallCount }} &nbsp;&nbsp;Missed Call
+
   </ion-card-content>
   </ion-card>
   </ion-col>
     <ion-col >
     <ion-card style="background-color:#3acebf">
   <ion-card-content style="color:#fff">
-  <ion-icon name="md-person" centre></ion-icon>
-  <!-- <p>{{dashBoard.agentCount}}</p> -->/
+
+ 
+
+  {{ agentCount }} &nbsp;&nbsp;Agents
+
   </ion-card-content>
   </ion-card>
   </ion-col>
@@ -54,16 +66,21 @@
     <ion-col>
     <ion-card style="background-color:#1b223a">
   <ion-card-content style="color:#fff">
-  <ion-icon name="md-call" centre></ion-icon>
-    <h2>0</h2>
+
+  
+  {{ activeCallCount }} &nbsp;&nbsp;Active Call
+
   </ion-card-content>
   </ion-card>
   </ion-col>
     <ion-col >
     <ion-card style="background-color:#f9c812">
   <ion-card-content style="color:#fff">
-  <ion-icon name="md-recording" centre></ion-icon>
-    <!-- <p>{{dashBoard.voicemailCount}}</p> -->
+
+  
+
+  {{ voicemailCount }} &nbsp;&nbsp;Voice Mail
+
   </ion-card-content>
   </ion-card>
   </ion-col>

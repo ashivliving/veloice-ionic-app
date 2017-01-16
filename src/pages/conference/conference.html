@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar class="page-heading">
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -30,25 +30,36 @@
 <ion-content padding>
 
 <div [ngSwitch]="dial">
-<span  *ngFor="let in of dialInData">
   <ion-list *ngSwitchCase="'dialin'">
+  <ion-item-divider ion-right >
+    <div end (click)="conferenceAdd(0)">
+    <ion-icon large item-right name='add'>&nbsp;Add Conference</ion-icon>
+    </div>
+  </ion-item-divider>
+    <span  *ngFor="let in of dialInData">
   <ion-item>
       
       <h2>{{in.conferenceName}}</h2>
-      <p>{{in.conferenceId}}</p>
+      <p>{{in.meetingTime}}</p>
       <ion-note item-right>{{in.assignedNumber}}</ion-note>
     </ion-item>
-  </ion-list>
 </span>
-  <span  *ngFor="let out of dialOutData">
+  </ion-list>
+
   <ion-list *ngSwitchCase="'dialout'">
+  <ion-item-divider ion-right >
+  <div end (click)="conferenceAdd(1)">
+    <ion-icon large item-right name='add'>&nbsp;Add Conference</ion-icon>
+    </div>
+  </ion-item-divider>
+  <span  *ngFor="let out of dialOutData">
   <ion-item>
       
       <h2>{{out.conferenceName}}</h2>
-      <p>{{out.conferenceId}}</p>
+      <p>{{out.meetingTime}}</p>
       <ion-note item-right>{{out.assignedNumber}}</ion-note>
     </ion-item>
-  </ion-list>
 </span>
+  </ion-list>
 </div>
 </ion-content>
